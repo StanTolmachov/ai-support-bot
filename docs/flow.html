@@ -1,0 +1,49 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Flow</title><style>
+:root{--bg:#F2F5F7;--ink:#11181F;--muted:#55606D;--soft:#D5DCE3;--accent:#0B7A9C;--op:#FFF1D6;--opb:#EFCB8A}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1600px;height:1200px;background:var(--bg);font-family:Inter,sans-serif;color:var(--ink);position:relative;overflow:hidden}
+h2{position:absolute;left:96px;top:72px;font-family:"Inter Display";font-size:56px;letter-spacing:-.03em}
+.lede{position:absolute;left:96px;top:148px;font-size:24px;color:var(--muted)}
+.n{position:absolute;background:#fff;border:1.5px solid var(--soft);border-radius:18px;padding:20px 24px;width:300px}
+.n small{display:block;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;font-weight:600}
+.n b{font-size:24px;font-weight:600;display:block}
+.n p{font-size:18px;color:var(--muted);margin-top:6px;line-height:1.35}
+.n.ai{background:var(--accent);border-color:var(--accent);color:#fff}.n.ai small,.n.ai p{color:#CBEAF3}
+.n.dark{background:var(--ink);border-color:var(--ink);color:#fff}.n.dark small,.n.dark p{color:#A4AFBB}
+.n.op{background:var(--op);border-color:var(--opb)}.n.op small{color:#9A5B00}
+.box{position:absolute;left:96px;top:880px;width:1408px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.c{background:#fff;border:1.5px solid var(--soft);border-radius:18px;padding:22px 26px}
+.c small{font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.c ul{list-style:none;margin-top:12px;font-size:19px;line-height:1.6}
+.c li::before{content:"✓ ";color:var(--accent);font-weight:700}
+.tag{position:absolute;font-size:17px;color:var(--muted);background:var(--bg);padding:2px 8px;font-weight:500}
+svg{position:absolute;inset:0}
+</style></head><body>
+<h2>How it works</h2>
+<div class="lede">One Go binary. The model answers and picks tools; Go code enforces the rules.</div>
+<svg width="1600" height="1200"><defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8B96A2"/></marker></defs>
+<g fill="none" stroke="#8B96A2" stroke-width="2.5">
+<path d="M396 310 L 476 310" marker-end="url(#a)"/>
+<path d="M776 310 L 856 310" marker-end="url(#a)"/>
+<path d="M1006 380 L 1006 450" marker-end="url(#a)"/>
+<path d="M1156 520 L 1236 520" marker-end="url(#a)"/>
+<path d="M856 520 L 776 520" marker-end="url(#a)"/>
+<path d="M1006 590 L 1006 660" marker-end="url(#a)"/>
+<path d="M856 730 L 776 730" marker-end="url(#a)"/>
+<path d="M1386 590 C 1386 650, 1220 650, 1160 570" stroke-dasharray="7 6" marker-end="url(#a)"/>
+</g></svg>
+<div class="n" style="left:96px;top:240px"><small>Telegram</small><b>Customer message</b><p>Webhook (secret header) or long polling</p></div>
+<div class="n dark" style="left:476px;top:240px"><small>Go · bot</small><b>Dispatcher</b><p>Dedupe · rate limit · per-chat order</p></div>
+<div class="n" style="left:856px;top:240px"><small>RAG</small><b>Retrieve</b><p>Gemini embeddings · cosine top-4</p></div>
+<div class="n ai" style="left:856px;top:450px"><small>Agent</small><b>Gemini + tools</b><p>Cited answer, or a tool call</p></div>
+<div class="n" style="left:1236px;top:450px;width:270px"><small>Tool</small><b>lookup_booking</b><p>ID + last name required</p></div>
+<div class="n" style="left:476px;top:450px"><small>Reply</small><b>Answer + sources</b><p>Plain text, history kept</p></div>
+<div class="n op" style="left:856px;top:660px"><small>Tool</small><b>escalate_to_human</b><p>Refunds, damage, unknowns</p></div>
+<div class="n op" style="left:476px;top:660px"><small>Operators' chat</small><b>Hand-off card</b><p>Reply in Telegram → customer · /done → bot</p></div>
+<span class="tag" style="left:1300px;top:630px">result</span>
+<div class="box">
+  <div class="c"><small>Reliability</small><ul><li>Retries with backoff, Retry-After</li><li>Webhook 503 = Telegram retries</li><li>Graceful shutdown drains work</li></ul></div>
+  <div class="c"><small>Safety</small><ul><li>Answers only from the docs</li><li>No booking data without last name</li><li>Prompt-injection rules · plain text</li></ul></div>
+  <div class="c"><small>Quality</small><ul><li>36 tests, race detector, e2e</li><li>Eval set: 16 real questions</li><li>Index rebuilt only on KB change</li></ul></div>
+</div>
+</body></html>

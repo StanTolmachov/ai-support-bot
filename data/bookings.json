@@ -1,0 +1,6 @@
+[
+  {"id": "PP-1042", "last_name": "Hansen", "bike": "E-bike (Trek Allant+)", "start": "2026-10-20 10:00", "end": "2026-10-20 18:00", "pickup": "Storgata shop", "status": "confirmed", "paid": true},
+  {"id": "PP-1043", "last_name": "Smith", "bike": "City bike ×2", "start": "2026-10-16 09:00", "end": "2026-10-18 17:00", "pickup": "Hurtigruten terminal", "status": "confirmed", "paid": false},
+  {"id": "PP-1037", "last_name": "Müller", "bike": "Fat bike with studded tyres", "start": "2026-10-12 11:00", "end": "2026-10-12 15:00", "pickup": "Storgata shop", "status": "returned", "paid": true},
+  {"id": "PP-1029", "last_name": "Kowalska", "bike": "Kids bike + child seat", "start": "2026-10-25 10:00", "end": "2026-10-25 14:00", "pickup": "Storgata shop", "status": "cancelled", "paid": false}
+]
